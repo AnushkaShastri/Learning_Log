@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit_entry</title>
+</head>
+<body>
+{% extends "DEMOAPP/base.html" %}
+{% block content %}
+<p><a href="{% url 'DEMOAPP:topic' topic.id %}">{{ topic }}</a></p>
+<p>Edit entry:</p>
+<form action="{% url 'DEMOAPP:edit_entry' entry.id %}" method='post'>
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit">save changes</button>
+</form>
+{% endblock content %}
+</body>
+</html>
